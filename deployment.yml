@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redit-clone
+  labels:
+    app: redit-clone
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redit-clone
+  template:
+    metadata:
+      labels:
+        app: redit-clone
+    spec:
+      containers:
+      - name: redit-clone
+        image: santoshbd67/redit:v1
+        ports:
+        - containerPort: 3000
